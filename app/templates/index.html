@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <div style="text-align: center">
+    <head>
+        <title>{{name}}</title>
+    </head>
+    <body>
+        <center><h1>神社</h1></center>
+        <img src="/static/images/tatemono_jinja.png" alt="鳥居">
+
+        <form action="/add" method="post">
+            <center><p>お金を入れよう</p> </center>
+            <p>
+            <input type="image" src="/static/images/saisenbako2.png" width="20%" height="20%" alt="saisen">
+            </p>
+        </form>
+        
+        <!--　喜捨フォーム　-->
+        <form action="/add" method="post">
+            <input type="text" name="title" placeholder="お名前">
+            <input type="number" name="body" placeholder="寄付額">
+            <input type="submit" value="寄付">
+        </form>
+        
+        {% for onegai in all_onegai %}
+        <p>{{onegai.title}}：{{onegai.body}}円（{{onegai.date}}）</p>
+        
+        {% endfor %}
+        
+        <p>{{sum1}}</p>
+        
+    </body>
+    </div>
+</html>
